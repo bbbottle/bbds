@@ -10482,9 +10482,9 @@ tty-table@^2.8.10:
     yargs "^15.1.0"
 
 turbo@latest:
-  version "1.0.16"
-  resolved "https://registry.npmjs.org/turbo/-/turbo-1.0.16.tgz#2bf28b5bba1b846e9fca54594807036f3fa16a0e"
-  integrity sha512-3RbiUcqJC627UT75bDB3K+aOcv+oSJQUes5eyF1X2dl9gnnqFFYnEzNZwaNgnkhok4dmZlym0Supd755+Ft4RA==
+  version "1.0.17"
+  resolved "https://registry.npmjs.org/turbo/-/turbo-1.0.17.tgz#25f7103e11b88291a8af31bd9d0de6025ea744b1"
+  integrity sha512-59oUN8xaLH5EEgUGbYSA/PGvGZTL3zJq4vJeUDtCZEYBcUx3sr+7ugws+cTb0jiPTllT1h+EprLcA9JN2MHUwg==
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
