@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@bbki.ng/tsconfig": "*",
-    "eslint-preset-acme": "*",
+    "@bbki.ng/eslint-preset": "*",
     "@types/react": "^17.0.13",
     "@types/react-dom": "^17.0.8",
     "react": "^17.0.2",
