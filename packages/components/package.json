@@ -1,6 +1,6 @@
 {
   "name": "@bbki.ng/components",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -16,8 +16,8 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
-    "@bbki.ng/tsconfig": "1.0.0",
-    "@bbki.ng/eslint-preset": "1.0.0",
+    "@bbki.ng/tsconfig": "1.0.1",
+    "@bbki.ng/eslint-preset": "1.0.1",
     "@types/react": "^17.0.13",
     "@types/react-dom": "^17.0.8",
     "react": "^17.0.2",
