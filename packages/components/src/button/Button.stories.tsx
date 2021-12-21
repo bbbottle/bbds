@@ -6,7 +6,9 @@ export default {
   component: Button,
 };
 
-export const Default = () => <Button type={ButtonType.PRIMARY}>Button</Button>;
-export const Danger = () => <Button type={ButtonType.DANGER}>Button</Button>;
-export const Normal = () => <Button type={ButtonType.NORMAL}>Button</Button>;
-export const Disabled = () => <Button type={ButtonType.DISABLED}>Button</Button>;
+const onClick = console.log;
+
+export const Default = () => <Button type={ButtonType.PRIMARY} onClick={onClick}>Button</Button>;
+export const Danger = () => <Button type={ButtonType.DANGER} onClick={onClick}>Button</Button>;
+export const Normal = () => <Button type={ButtonType.NORMAL} onClick={onClick}>Button</Button>;
+export const Disabled = () => <Button type={ButtonType.DISABLED} onClick={onClick}>Button</Button>;

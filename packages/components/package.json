@@ -10,8 +10,8 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
-    "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react",
+    "build": "tsup src/index.tsx --format esm,cjs --dts --external react --external classnames --external react-router-dom",
+    "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react --external classnames --external react-router-dom",
     "lint": "TIMING=1 eslint src --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
@@ -20,6 +20,7 @@
     "@bbki.ng/tsconfig": "1.0.2",
     "@types/react": "^17.0.13",
     "@types/react-dom": "^17.0.8",
+    "@types/react-router-dom": "^5.3.2",
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.5",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -30,5 +31,9 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "react-router-dom": "^6.2.1"
   }
 }
