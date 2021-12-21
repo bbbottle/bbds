@@ -16,11 +16,15 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
-    "@bbki.ng/tsconfig": "1.0.2",
     "@bbki.ng/eslint-preset": "1.0.2",
+    "@bbki.ng/tsconfig": "1.0.2",
     "@types/react": "^17.0.13",
     "@types/react-dom": "^17.0.8",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.5",
+    "postcss-flexbugs-fixes": "^5.0.2",
     "react": "^17.0.2",
+    "tailwindcss": "^3.0.7",
     "tsup": "^5.10.1",
     "typescript": "^4.5.3"
   },
