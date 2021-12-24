@@ -4,15 +4,16 @@ import { Link as BaseLink, LinkProps as BaseLinkProps } from "react-router-dom";
 import React from "react";
 
 export enum LinkColor {
-  BLUE = 'blue',
-  RED = 'red',
-  GRAY = 'gray'
+  BLUE = "blue",
+  RED = "red",
+  GRAY = "gray",
 }
 
 export interface LinkProps extends BaseLinkProps {
   color?: LinkColor;
   external?: boolean;
   to: string;
+  children: any;
 }
 
 const COLOR_MAPPING = {
@@ -24,7 +25,7 @@ const COLOR_MAPPING = {
 const HOVER_COLOR_MAPPING = {
   [LinkColor.BLUE]: "hover:bg-blue-100",
   [LinkColor.RED]: "hover:bg-red-100",
-  [LinkColor.GRAY]: "hover:bg-gray-100"
+  [LinkColor.GRAY]: "hover:bg-gray-100",
 };
 
 export const Link = (props: LinkProps) => {
@@ -42,7 +43,7 @@ export const Link = (props: LinkProps) => {
     "rounded",
     "no-underline",
     "transition-colors",
-    HOVER_COLOR_MAPPING[color],
+    HOVER_COLOR_MAPPING[color]
   );
 
   if (external) {

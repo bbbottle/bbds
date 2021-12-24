@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Button, ButtonProps, ButtonType } from "./Button";
 
 export default {
@@ -6,13 +6,22 @@ export default {
   component: Button,
   argTypes: {
     type: {
-      options: [ButtonType.PRIMARY, ButtonType.DISABLED, ButtonType.NORMAL, ButtonType.DANGER],
+      options: [
+        ButtonType.PRIMARY,
+        ButtonType.DISABLED,
+        ButtonType.NORMAL,
+        ButtonType.DANGER,
+      ],
       defaultValue: ButtonType.PRIMARY,
-      control: { type: 'select' }, // Automatically inferred when 'options' is defined
+      control: { type: "select" }, // Automatically inferred when 'options' is defined
     },
   },
 };
 
 const onClick = console.log;
 
-export const Default = (props: ButtonProps) => <Button type={ props.type || ButtonType.PRIMARY} onClick={onClick}>Button</Button>;
+export const Default = (props: ButtonProps) => (
+  <Button type={props.type || ButtonType.PRIMARY} onClick={onClick}>
+    Button
+  </Button>
+);
