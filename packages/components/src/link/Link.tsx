@@ -11,6 +11,7 @@ export enum LinkColor {
 
 export interface LinkProps extends BaseLinkProps {
   color?: LinkColor;
+  className?: string;
   external?: boolean;
   to: string;
   children: any;

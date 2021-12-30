@@ -21,10 +21,10 @@ export const Breadcrumb = (props: BreadcrumbProps) => {
     );
 
     return (
-      <>
+      <span key={path || name}>
         {slash}
         {link}
-      </>
+      </span>
     );
   });
   return <div className="breadcrumb">{PathElements}</div>;

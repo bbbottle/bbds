@@ -12,9 +12,9 @@ export type PopConfirmProps = {
 };
 
 export const PopConfirm = (props: PopConfirmProps) => {
-  const { width, onOk, onCancel, children, content, className } = props;
+  const { onOk, onCancel, children, content, className } = props;
   return (
-    <Panel width={width}>
+    <Panel className={className}>
       <div className="mb-32">{children || content}</div>
       <div className="flex justify-end">
         {onCancel && (
@@ -23,7 +23,7 @@ export const PopConfirm = (props: PopConfirmProps) => {
           </Button>
         )}
         {onOk && (
-          <Button onClick={onOk} className="ml-32" type={ButtonType.PRIMARY}>
+          <Button onClick={onOk} className="ml-16" type={ButtonType.PRIMARY}>
             OK
           </Button>
         )}

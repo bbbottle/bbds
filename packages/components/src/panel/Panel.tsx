@@ -7,21 +7,17 @@ export type PanelProps = {
 };
 
 export const Panel = (props: PanelProps) => {
-  const { className, width, children } = props;
+  const { className = "", children } = props;
   const [show, setShow] = useState(false);
   useEffect(() => {
     setShow(true);
   }, []);
-  const style = {
-    width: width || 512,
-  };
 
   return (
     <div
-      className={`transition-all ease-in-out duration-700 ${className} ${
+      className={`transition-all ease-in-out duration-900 ${className} ${
         show ? "shadow-panel" : "shadow-empty"
       } p-32`}
-      style={style}
     >
       {children}
     </div>

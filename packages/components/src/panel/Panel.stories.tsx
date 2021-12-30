@@ -6,4 +6,4 @@ export default {
   component: Panel,
 };
 
-export const Default = () => <Panel>HELLO WORLD</Panel>;
+export const Default = () => <Panel className="max-w-xs">HELLO WORLD</Panel>;
