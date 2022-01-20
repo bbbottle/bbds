@@ -1,6 +1,6 @@
 {
   "name": "@bbki.ng/design",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "tailwind css config for bbki.ng",
   "main": "index.js",
   "license": "MIT",
