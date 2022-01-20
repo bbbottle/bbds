@@ -10,6 +10,13 @@ module.exports = {
         },
       },
       extend: {
+        fontSize: {
+          h1: "2.25rem",
+          h2: "1.5rem",
+          h3: "1.25rem",
+          h4: "1rem",
+          h5: "1rem",
+        },
         spacing: {
           4: "0.25rem",
           8: "0.5rem",
@@ -32,7 +39,7 @@ module.exports = {
         },
         colors: {
           white: "#FFFFFF",
-          black: "#1F2937",
+          black: "#111827",
           gray: {
             50: "#F9FAFB",
             100: "#F3F4F6",
@@ -99,5 +106,13 @@ module.exports = {
       },
     },
   },
-  handler: function () {},
+  handler: function ({ addBase }) {
+    addBase({
+      h1: { fontSize: "2.25rem" },
+      h2: { fontSize: "1.5rem" },
+      h3: { fontSize: "1.25rem" },
+      h4: { fontSize: "1rem" },
+      h5: { fontSize: "1rem" },
+    });
+  },
 };
