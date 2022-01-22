@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
 
-import { Breadcrumb } from "./Breadcrumb";
+import { Breadcrumb, BreadcrumbProps } from "./Breadcrumb";
 
 export default {
   title: "Breadcrumb",
@@ -22,8 +22,34 @@ const paths = [
   },
 ];
 
-export const Default = () => (
+const pathsWithCn = [
+  {
+    name: "~",
+    path: "/",
+  },
+  {
+    name: "ext",
+    path: "/ext",
+  },
+  {
+    name: "txt",
+    path: "/txt",
+  },
+  {
+    name: "与或非禁区",
+  },
+];
+
+const Template = (args: BreadcrumbProps) => (
   <Router>
-    <Breadcrumb paths={paths} />
+    <Breadcrumb {...args} />
   </Router>
 );
+
+export const Default = Template.bind({});
+// @ts-ignore
+Default.args = { paths };
+
+export const WithChineseWords = Template.bind({});
+// @ts-ignore
+WithChineseWords.args = { paths: pathsWithCn };

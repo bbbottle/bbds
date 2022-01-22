@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 import { Link } from "../link/Link";
 
 export type PathObj = {
@@ -14,10 +15,12 @@ export const Breadcrumb = (props: BreadcrumbProps) => {
   const { paths } = props;
   const PathElements = paths.map(({ path, name }, index) => {
     const slash = index === 0 ? null : <span className="text-gray-400">/</span>;
+    const isNonEnName = !/^[a-zA-Z]+$/.test(name);
+    const offsetCls = classNames({ "relative top-[2px]": isNonEnName });
     const link = path ? (
       <Link to={path}>{name}</Link>
     ) : (
-      <span className="text-gray-400">{name}</span>
+      <span className={classNames("text-gray-400", offsetCls)}>{name}</span>
     );
 
     return (
