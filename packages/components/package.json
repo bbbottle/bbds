@@ -32,7 +32,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
+  "peerDependencies": {
     "classnames": "^2.3.1",
     "react-router-dom": "5.3.0"
   }
