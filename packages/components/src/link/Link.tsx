@@ -29,6 +29,12 @@ const HOVER_COLOR_MAPPING = {
   [LinkColor.GRAY]: "hover:bg-gray-100",
 };
 
+const FOCUS_BG_COLOR_MAPPING = {
+  [LinkColor.BLUE]: "focus:bg-blue-600",
+  [LinkColor.RED]: "focus:bg-red-500",
+  [LinkColor.GRAY]: "focus:bg-gray-400",
+};
+
 export const Link = (props: LinkProps) => {
   const {
     color = LinkColor.BLUE,
@@ -39,12 +45,14 @@ export const Link = (props: LinkProps) => {
   } = props;
 
   const linkCls = classNames(
-    COLOR_MAPPING[color],
     className,
     "rounded",
     "no-underline",
     "transition-colors",
-    HOVER_COLOR_MAPPING[color]
+    "focus:text-white",
+    COLOR_MAPPING[color],
+    HOVER_COLOR_MAPPING[color],
+    FOCUS_BG_COLOR_MAPPING[color]
   );
 
   if (external) {
