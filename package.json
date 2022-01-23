@@ -14,7 +14,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pub": "yarn build && yarn changeset && yarn changeset version && yarn changeset publish"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
