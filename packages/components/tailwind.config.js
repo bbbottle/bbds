@@ -1,9 +1,9 @@
 module.exports = {
-  mode: 'jit',
+  mode: "jit",
   purge: [],
   content: [],
   theme: {
     extend: {},
   },
-  plugins: [require('@bbki.ng/design')],
-}
+  plugins: [require("@bbki.ng/design"), require("@tailwindcss/typography")],
+};

@@ -8,3 +8,4 @@ export * from "./panel/Panel";
 export * from "./page/Page";
 export * from "./breadcrumb/Breadcrumb";
 export * from "./pop-confirm/PopConfirm";
+export * from "./table/Table";
