@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties, StyleHTMLAttributes } from "react";
 export type TableProps = {
   rowCount: number;
   rowRenderer: (index: number) => any;
@@ -23,5 +23,9 @@ export const Table = (props: TableProps) => {
   );
 };
 
-Table.HCell = (props: { children: any }) => <th>{props.children}</th>;
-Table.Cell = (props: { children: any }) => <td>{props.children}</td>;
+Table.HCell = (props: { children: any; style?: CSSProperties }) => (
+  <th {...props}>{props.children}</th>
+);
+Table.Cell = (props: { children: any; style?: CSSProperties }) => (
+  <td {...props}>{props.children}</td>
+);
