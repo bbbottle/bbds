@@ -10,3 +10,4 @@ export * from "./breadcrumb/Breadcrumb";
 export * from "./pop-confirm/PopConfirm";
 export * from "./table/Table";
 export * from "./skeleton/Seleton";
+export * from "./drop-image/DropImage";

@@ -14,7 +14,7 @@
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "lib": ["ES2015"],
+    "lib": ["ES2015", "dom"],
     "module": "ESNext",
     "target": "ES6",
     "jsx": "react-jsx"
