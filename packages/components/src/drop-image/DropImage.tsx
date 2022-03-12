@@ -81,9 +81,9 @@ export const DropImage: FunctionComponent<ImageDropProps<any>> = (props) => {
           "h-[auto]",
           "duration-300",
           "transition-opacity",
-          "opacity-0",
+          "opacity-100",
           {
-            "opacity-100": showImagePreviewer,
+            "opacity-0": !showImagePreviewer,
           }
         )}
         ref={imageRef}
