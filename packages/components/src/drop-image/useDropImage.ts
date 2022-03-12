@@ -43,7 +43,11 @@ export const useDropImage = (params?: {
   };
 
   const setPreviewImageSrcByFile = (file: File) => {
-    setImageSrc(URL.createObjectURL(file));
+    try {
+      setImageSrc(URL.createObjectURL(file));
+    } catch (e) {
+      setImageSrc("");
+    }
   };
 
   const handleDragOver = useCallback((ev) => {
