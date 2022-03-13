@@ -14,6 +14,7 @@ export interface ImageDropProps<T> {
   dragOverBgColor?: string;
   dropAreaStyle?: CSSStyleDeclaration;
   placeholder?: any;
+  className?: string;
 }
 
 export const DropImage: FunctionComponent<ImageDropProps<any>> = (props) => {
@@ -24,6 +25,7 @@ export const DropImage: FunctionComponent<ImageDropProps<any>> = (props) => {
     dragOverBgColor = "#EFF6FF",
     waitTimeAfterFinish = 2000,
     placeholder = "",
+    className = "",
     onUploadFinish = noop,
     dropAreaStyle = {
       width: 300,
@@ -64,6 +66,7 @@ export const DropImage: FunctionComponent<ImageDropProps<any>> = (props) => {
   return (
     <div
       className={cls(
+        className,
         "transition-all items-center justify-center flex duration-200 ease-in-out",
         {
           "shadow-input": !imageSrc,
