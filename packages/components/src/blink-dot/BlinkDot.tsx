@@ -11,7 +11,7 @@ export const BlinkDot = (props: BLinkDotProps) => {
   return (
     <span
       className={classNames(
-        "inline-flex h-2 w-2 justify-center items-center relative",
+        "inline-flex h-1 w-1 justify-center items-center relative",
         className
       )}
     >
