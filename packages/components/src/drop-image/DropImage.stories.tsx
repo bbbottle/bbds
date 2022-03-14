@@ -16,3 +16,15 @@ export const Default = () => {
     />
   );
 };
+
+export const Ghost = () => {
+  return (
+    <DropImage
+      placeholder={<span className="text-gray-400">drop image here</span>}
+      uploader={async () => {
+        return false;
+      }}
+      ghost
+    />
+  );
+};

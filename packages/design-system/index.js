@@ -10,6 +10,9 @@ module.exports = {
         },
       },
       extend: {
+        animation: {
+          "ping-fast": "ping .1s linear infinite",
+        },
         fontSize: {
           h1: "2.25rem",
           h2: "1.5rem",
@@ -18,12 +21,14 @@ module.exports = {
           h5: "1rem",
         },
         spacing: {
+          2: "0.125rem",
           4: "0.25rem",
           8: "0.5rem",
           16: "1rem",
           32: "2rem",
           64: "4rem",
           128: "8rem",
+          256: "16rem",
         },
         boxShadow: {
           panel:
