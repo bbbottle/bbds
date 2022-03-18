@@ -28,7 +28,11 @@ export const Default = () => (
   <Router>
     <Page
       nav={<Nav paths={paths} />}
-      main={<div>hello</div>}
+      main={
+        <div className="p-8 border-dotted border border-gray-600 h-full">
+          hello
+        </div>
+      }
       footer={
         <Link to="/world" color={LinkColor.GRAY}>
           hello
