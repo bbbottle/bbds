@@ -1,6 +1,6 @@
 import { HashRouter as Router } from "react-router-dom";
 import React from "react";
-import { List } from "./list";
+import { List, LinkList } from "./list";
 import { Link } from "../link/Link";
 
 export default {
@@ -18,33 +18,48 @@ export const HorizontalList = () => {
   );
 };
 
-export const LinkList = () => {
+export const ListOfLink = () => {
   const ExtensionsList = [
     {
-      path: "txt",
+      to: "txt",
       name: "txt",
     },
     {
-      path: "png",
+      to: "png",
       name: "png",
     },
     {
-      path: "avi",
+      to: "avi",
       name: "avi",
     },
   ];
 
-  const renderExt = ({ name, path }: any) => {
-    return (
-      <Link to={path} key={name}>
-        {name}
-      </Link>
-    );
-  };
+  return (
+    <Router>
+      <LinkList links={ExtensionsList} />
+    </Router>
+  );
+};
+
+export const ListOfLinkWithTitle = () => {
+  const ExtensionsList = [
+    {
+      to: "txt",
+      name: "txt",
+    },
+    {
+      to: "png",
+      name: "png",
+    },
+    {
+      to: "avi",
+      name: "avi",
+    },
+  ];
 
   return (
     <Router>
-      <List items={ExtensionsList} itemRenderer={renderExt} />
+      <LinkList links={ExtensionsList} title="hello world" />
     </Router>
   );
 };

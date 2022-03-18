@@ -13,8 +13,9 @@ export interface LinkProps extends BaseLinkProps {
   color?: LinkColor;
   className?: string;
   external?: boolean;
+  name?: any;
+  children?: any;
   to: string;
-  children: any;
 }
 
 const COLOR_MAPPING = {
