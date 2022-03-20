@@ -64,6 +64,9 @@ export const useDropImage = (params?: {
     ev.preventDefault();
     setIsDragOver(false);
     const file = ev.dataTransfer.files[0];
+    if (!file || !file.type.startsWith("image")) {
+      return;
+    }
     imageFile.current = file;
     setPreviewImageSrcByFile(file);
     onDrop(ev, file);
