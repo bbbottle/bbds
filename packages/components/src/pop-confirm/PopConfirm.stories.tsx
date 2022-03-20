@@ -11,3 +11,15 @@ export const Default = () => (
     🚀 点击更新获取最新内容。
   </PopConfirm>
 );
+
+export const AsyncHandler = () => (
+  <PopConfirm
+    onOk={() => {
+      return new Promise((r) => setTimeout(r, 30000));
+    }}
+    onCancel={console.log}
+    className="max-w-xs"
+  >
+    🚀 点击更新获取最新内容。
+  </PopConfirm>
+);

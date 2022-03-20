@@ -1,9 +1,12 @@
-import React, { EventHandler } from "react";
+import React, { EventHandler, useState } from "react";
 import { Button, ButtonType } from "../button/Button";
 import { Panel } from "../panel/Panel";
+import { BlinkDot } from "../blink-dot/BlinkDot";
 
 export type PopConfirmProps = {
-  onOk?: EventHandler<React.MouseEvent<HTMLButtonElement>>;
+  onOk?:
+    | EventHandler<React.MouseEvent<HTMLButtonElement>>
+    | (() => Promise<void>);
   onCancel?: EventHandler<React.MouseEvent<HTMLButtonElement>>;
   className?: string;
   content?: any;
@@ -12,6 +15,7 @@ export type PopConfirmProps = {
 };
 
 export const PopConfirm = (props: PopConfirmProps) => {
+  const [loading, setLoading] = useState(false);
   const { onOk, onCancel, children, content, className } = props;
   return (
     <Panel className={className}>
@@ -23,8 +27,17 @@ export const PopConfirm = (props: PopConfirmProps) => {
           </Button>
         )}
         {onOk && (
-          <Button onClick={onOk} className="ml-16" type={ButtonType.PRIMARY}>
+          <Button
+            onClick={async (e) => {
+              setLoading(true);
+              await onOk(e);
+              setLoading(false);
+            }}
+            className="ml-16 relative"
+            type={loading ? ButtonType.DISABLED : ButtonType.PRIMARY}
+          >
             OK
+            {loading && <BlinkDot className="!absolute top-2 right-2" />}
           </Button>
         )}
       </div>
