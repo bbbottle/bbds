@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import { NoiseCover } from "../noise-cover/NoiseCover";
 
 type PageProps = {
   nav: ReactElement;
@@ -18,5 +19,16 @@ export const Page = (props: PageProps) => {
         </footer>
       )}
     </main>
+  );
+};
+
+export const NotFound = (props: { children?: any }) => {
+  return (
+    <NoiseCover
+      color="#2563eb"
+      className="flex justify-center items-center text-white"
+    >
+      {props.children || 404}
+    </NoiseCover>
   );
 };

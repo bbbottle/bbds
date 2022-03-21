@@ -15,7 +15,7 @@ export const Default = () => (
 export const AsyncHandler = () => (
   <PopConfirm
     onOk={() => {
-      return new Promise((r) => setTimeout(r, 30000));
+      return new Promise((r) => setTimeout(r, 3000));
     }}
     onCancel={console.log}
     className="max-w-xs"
