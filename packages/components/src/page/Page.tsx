@@ -32,3 +32,17 @@ export const NotFound = (props: { children?: any }) => {
     </NoiseCover>
   );
 };
+
+export const Error = (props: { error: Error }) => {
+  const { error } = props;
+  return (
+    <NoiseCover
+      color="#ef4444"
+      className="flex justify-center items-center text-white"
+    >
+      <code>
+        {error.name}: {error.message}
+      </code>
+    </NoiseCover>
+  );
+};
