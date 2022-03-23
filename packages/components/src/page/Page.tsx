@@ -46,3 +46,25 @@ export const Error = (props: { error: Error }) => {
     </NoiseCover>
   );
 };
+
+export class ErrorBoundary extends React.Component<
+  { children: any },
+  { error?: Error; hasError: boolean }
+> {
+  constructor(props: { children: any }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+
+  render() {
+    if (this.state.error && this.state.hasError) {
+      return <Error error={this.state.error} />;
+    }
+
+    return this.props.children;
+  }
+}
