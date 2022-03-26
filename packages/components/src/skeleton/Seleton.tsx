@@ -25,7 +25,7 @@ export interface SkeletonProps {
 }
 
 export interface ArticleSkeletonProps extends SkeletonProps {
-  titleLength: number;
+  titleLength?: number;
   descriptionLength?: number;
   children?: any;
 }
@@ -46,7 +46,7 @@ export const Skeleton = (props: SkeletonProps) => {
 };
 
 export const ArticleSkeleton = (props: ArticleSkeletonProps) => {
-  const { children, titleLength, descriptionLength } = props;
+  const { children, titleLength = 0, descriptionLength } = props;
   return (
     <Article
       title={
@@ -70,6 +70,10 @@ export const LinkListSkeleton = (props: LinkListSkeletonProps) => {
   const renderSkeleton = (length: number) => {
     return <Skeleton width={length * 16} bgColor={SkeletonColor.BLUE} />;
   };
+
+  if (!rest.titleLength) {
+    return <List items={linksLength} itemRenderer={renderSkeleton} />;
+  }
 
   return (
     <ArticleSkeleton {...rest}>

@@ -40,6 +40,24 @@ const pathsWithCn = [
   },
 ];
 
+const pathsWithMultiCnWords = [
+  {
+    name: "~",
+    path: "/",
+  },
+  {
+    name: "ext",
+    path: "/ext",
+  },
+  {
+    name: "图片",
+    path: "/png",
+  },
+  {
+    name: "县城",
+  },
+];
+
 const Template = (args: BreadcrumbProps) => (
   <Router>
     <Breadcrumb {...args} />
@@ -51,5 +69,10 @@ export const Default = Template.bind({});
 Default.args = { paths };
 
 export const WithChineseWords = Template.bind({});
+
+export const WithMultiChineseWords = Template.bind({});
+
+// @ts-ignore
+WithMultiChineseWords.args = { paths: pathsWithMultiCnWords };
 // @ts-ignore
 WithChineseWords.args = { paths: pathsWithCn };

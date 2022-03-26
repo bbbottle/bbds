@@ -19,7 +19,9 @@ export const Breadcrumb = (props: BreadcrumbProps) => {
     const isNonEnName = !/^[a-zA-Z~]+$/.test(name);
     const offsetCls = classNames({ "relative top-[2px]": isNonEnName });
     const link = path ? (
-      <Link to={path}>{name}</Link>
+      <Link to={path} className={offsetCls}>
+        {name}
+      </Link>
     ) : (
       <span className={classNames("text-gray-400", offsetCls)}>{name}</span>
     );
