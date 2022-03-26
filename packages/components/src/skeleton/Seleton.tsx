@@ -19,6 +19,7 @@ const COLOR_MAPPING = {
 };
 
 export interface SkeletonProps {
+  className?: string;
   width?: number;
   height?: number;
   bgColor?: SkeletonColor;
@@ -35,11 +36,21 @@ export interface LinkListSkeletonProps extends ArticleSkeletonProps {
 }
 
 export const Skeleton = (props: SkeletonProps) => {
-  const { bgColor = SkeletonColor.GRAY, width = 26, height = 24 } = props;
+  const {
+    bgColor = SkeletonColor.GRAY,
+    width = 26,
+    height = 24,
+    className,
+  } = props;
 
   return (
     <div
-      className={classNames(COLOR_MAPPING[bgColor], "animate-pulse", "rounded")}
+      className={classNames(
+        COLOR_MAPPING[bgColor],
+        "animate-pulse",
+        "rounded",
+        className
+      )}
       style={{ width, height }}
     />
   );
@@ -68,7 +79,13 @@ export const ArticleSkeleton = (props: ArticleSkeletonProps) => {
 export const LinkListSkeleton = (props: LinkListSkeletonProps) => {
   const { linksLength, ...rest } = props;
   const renderSkeleton = (length: number) => {
-    return <Skeleton width={length * 16} bgColor={SkeletonColor.BLUE} />;
+    return (
+      <Skeleton
+        className="inline-block"
+        width={length * 16}
+        bgColor={SkeletonColor.BLUE}
+      />
+    );
   };
 
   if (!rest.titleLength) {
