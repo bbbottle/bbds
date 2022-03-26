@@ -81,7 +81,7 @@ export const LinkListSkeleton = (props: LinkListSkeletonProps) => {
   const renderSkeleton = (length: number) => {
     return (
       <Skeleton
-        className="inline-block"
+        className="inline-block align-middle"
         width={length * 16}
         bgColor={SkeletonColor.BLUE}
       />
