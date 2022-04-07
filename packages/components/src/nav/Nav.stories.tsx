@@ -25,3 +25,9 @@ export const Default = () => (
     <Nav paths={paths} />
   </Router>
 );
+
+export const Loading = () => (
+  <Router>
+    <Nav paths={paths} loading />
+  </Router>
+);
