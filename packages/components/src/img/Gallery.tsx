@@ -5,6 +5,13 @@ import { RandomRowsLayout, RandomRowsLayoutProps } from "./RandomRowsLayout";
 import { ImgProps } from "./types";
 import { Img } from "./Img";
 
+export type ImageRenderer = (
+  Img: ReactElement,
+  index: number,
+  col: number,
+  randBool: boolean
+) => ReactNode;
+
 export interface GalleryProps
   extends Omit<
     RandomRowsLayoutProps,
@@ -12,28 +19,41 @@ export interface GalleryProps
   > {
   images: ImgProps[];
   children?: ReactNode;
-  imageRenderer?: (Img: ReactElement) => ReactNode;
+  imageRenderer?: ImageRenderer;
 }
 
+const defaultImageRenderer: ImageRenderer = (img, index, col) => {
+  return (
+    <div
+      className={classnames("mb-256", {
+        "md:mr-64": col === 0,
+        "md:ml-64": col !== 0,
+      })}
+    >
+      {img}
+    </div>
+  );
+};
+
 export const Gallery = (props: GalleryProps) => {
-  const { images, children, imageRenderer = (i) => i, ...rest } = props;
+  const {
+    images,
+    children,
+    imageRenderer = defaultImageRenderer,
+    ...rest
+  } = props;
+
   const renderImage = (index: number, isLargeImage: boolean, col: number) => {
     const image: any = images[index];
     if (!image) {
       return null;
     }
 
-    return (
-      <div
-        className={classnames("mb-256", {
-          "md:mr-64": col === 0,
-          "md:ml-64": col !== 0,
-        })}
-      >
-        {imageRenderer(
-          <Img {...image} size={isLargeImage ? "large" : "normal"} />
-        )}
-      </div>
+    return imageRenderer(
+      <Img {...image} size={isLargeImage ? "large" : "normal"} />,
+      index,
+      col,
+      isLargeImage
     );
   };
 
