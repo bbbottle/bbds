@@ -1,13 +1,8 @@
 // @ts-ignore
 import classnames from "classnames";
 import React, { useState } from "react";
-import { Photo, ossProcessType } from "./types";
+import { ImgProps, ossProcessType } from "./types";
 import { addOssWebpProcessStyle, calcDefaultImgSize, delay } from "./utils";
-
-export interface ImgProps extends Photo {
-  className?: string;
-  size?: "large" | "normal";
-}
 
 const emptyDataURL =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";

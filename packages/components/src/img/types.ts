@@ -15,3 +15,8 @@ export interface Photo {
   thumbnailSrc?: string;
   renderedWidth?: number;
 }
+
+export interface ImgProps extends Photo {
+  className?: string;
+  size?: "large" | "normal";
+}
