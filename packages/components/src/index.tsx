@@ -15,3 +15,4 @@ export * from "./blink-dot/BlinkDot";
 export * from "./layout/layout";
 export * from "./list/list";
 export * from "./noise-cover/NoiseCover";
+export * from "./img/Img";
