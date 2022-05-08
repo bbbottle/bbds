@@ -16,9 +16,5 @@ export default {
 };
 
 export const Default = (props: SpinnerProps) => (
-  <Spinner
-    {...props}
-    pathClassName="stroke-gray-200"
-    className="animate-spin"
-  />
+  <Spinner {...props} pathClassName="stroke-gray-200" />
 );

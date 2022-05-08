@@ -18,7 +18,7 @@ export const Spinner = (props: SpinnerProps) => {
       viewBox="0 0 606 606"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={classNames("animate-spin", className)}
     >
       <path
         className={pathClassName}
