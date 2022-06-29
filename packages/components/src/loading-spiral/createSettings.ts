@@ -1,5 +1,5 @@
 export interface ISettings {
-  canvas: HTMLCanvasElement;
+  canvas?: HTMLCanvasElement;
   step?: number;
 }
 
