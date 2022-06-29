@@ -8461,6 +8461,11 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+phenomenon@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.npmjs.org/phenomenon/-/phenomenon-1.6.0.tgz#7b5b7647d0b48152cc0846994da3d92e8f6da677"
+  integrity sha512-7h9/fjPD3qNlgggzm88cY58l9sudZ6Ey+UmZsizfhtawO6E3srZQXywaNm2lBwT72TbpHYRPy7ytIHeBUD/G0A==
+
 picocolors@^0.2.1:
   version "0.2.1"
   resolved "https://registry.npmjs.org/picocolors/-/picocolors-0.2.1.tgz#570670f793646851d1ba135996962abad587859f"

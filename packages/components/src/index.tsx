@@ -17,4 +17,4 @@ export * from "./list/list";
 export * from "./noise-cover/NoiseCover";
 export * from "./img/Img";
 export * from "./img/Gallery";
-export * from "./spinner/Spinner";
+export * from "./loading-spiral/LoadingSpiral";
