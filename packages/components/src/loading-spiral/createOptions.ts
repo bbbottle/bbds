@@ -9,10 +9,10 @@ export interface IOpt {
 }
 
 export const DEFAULT_OPT: IOpt = {
-  multiplier: 30000,
+  multiplier: 150000,
   color: [209, 213, 219, 1],
   spiralConstA: 0.04,
-  spiralConstB: 0.16
+  spiralConstB: 0.16,
 };
 
 export const createOptions = (opt: IOpt = DEFAULT_OPT) => {
@@ -29,21 +29,21 @@ export const createOptions = (opt: IOpt = DEFAULT_OPT) => {
         const xPos = A * Math.pow(Math.E, B * ang) * Math.cos(ang);
         const yPos = A * Math.pow(Math.E, B * ang) * Math.sin(ang);
 
-        return [xPos, yPos, 1];
+        return [getRandom(xPos), getRandom(yPos), 1];
       },
-      size: 3
+      size: 3,
     },
     {
       name: ATTR.COLOR,
       data: () => randOpacityRgb(color),
-      size: 3
-    }
+      size: 3,
+    },
   ];
 
   return {
     attributes,
     multiplier,
     vertex: VERTEX_SHADER,
-    fragment: FRAGMENT_SHADER
+    fragment: FRAGMENT_SHADER,
   };
 };
