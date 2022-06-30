@@ -8,12 +8,21 @@ import { createOptions, DEFAULT_OPT, IOpt } from "./createOptions";
 import { useResizedCanvasRef } from "./useCanvasRef";
 
 export interface LoadingSpiralProps extends IOpt, ISettings {
-  className?: "string";
+  className?: string;
+  maxWidth?: number;
+  offset?: number;
 }
 
 export const LoadingSpiral = (props?: LoadingSpiralProps) => {
-  const { canvasRef, containerRef } = useResizedCanvasRef();
-  const { className, canvas, step, ...rest } = props || {};
+  const {
+    className,
+    canvas,
+    step,
+    maxWidth = 1000,
+    offset = -100,
+    ...rest
+  } = props || {};
+  const { canvasRef, containerRef } = useResizedCanvasRef(maxWidth, offset);
 
   useEffect(() => {
     if (!canvasRef.current) {
@@ -21,7 +30,7 @@ export const LoadingSpiral = (props?: LoadingSpiralProps) => {
     }
 
     const phenomenon = new Phenomenon({
-      settings: createSettings({ canvas: canvasRef.current, step })
+      settings: createSettings({ canvas: canvasRef.current, step }),
     });
 
     phenomenon.add(
@@ -38,7 +47,7 @@ export const LoadingSpiral = (props?: LoadingSpiralProps) => {
       )}
       ref={containerRef}
     >
-      <canvas ref={canvasRef} />
+      <canvas ref={canvasRef} className="relative" />
     </div>
   );
 };

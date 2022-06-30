@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export const useResizedCanvasRef = () => {
+export const useResizedCanvasRef = (maxSize: number, offset: number) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -10,12 +10,15 @@ export const useResizedCanvasRef = () => {
     if (!canvas || !container) return;
     const { width, height } = container.getBoundingClientRect();
     const canvasSize = Math.max(width, height);
-    canvas.setAttribute("width", `${canvasSize}`);
-    canvas.setAttribute("height", `${canvasSize}`);
+    const size = Math.min(canvasSize, maxSize);
+
+    canvas.style.top = `${offset}px`;
+    canvas.setAttribute("width", `${size}`);
+    canvas.setAttribute("height", `${size}`);
   }, []);
 
   return {
     canvasRef,
-    containerRef
+    containerRef,
   };
 };

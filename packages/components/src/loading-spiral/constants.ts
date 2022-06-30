@@ -1,6 +1,6 @@
 export enum ATTR {
   POSITION_START = "aPositionStart",
-  COLOR = "aColor"
+  COLOR = "aColor",
 }
 
 export const VERTEX_SHADER = `
@@ -19,8 +19,16 @@ export const VERTEX_SHADER = `
       0.0, 0.0, 0.0, 1.0
     );
   }
+  mat4 translate(float _angle){
+    return mat4(
+      1.0, 0.0, 0.0, sin(_angle) * 0.04,
+      0.0, 1.0, 0.0, cos(_angle) * 0.04,
+      0.0, 0.0, 1.0, 0.0,
+      0.0, 0.0, 0.0, 1.0
+    );
+  }
   void main(){
-    gl_Position = rotate(uProgress) * uProjectionMatrix * uModelMatrix * uViewMatrix * vec4(${ATTR.POSITION_START}, 1.0);
+    gl_Position = rotate(uProgress) * uProjectionMatrix * uModelMatrix * uViewMatrix * vec4(${ATTR.POSITION_START}, 1.0) * translate(uProgress);
     gl_PointSize = 2.0;
     vColor = ${ATTR.COLOR};
   }
