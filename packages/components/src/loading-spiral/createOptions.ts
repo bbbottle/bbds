@@ -1,5 +1,5 @@
 import { ATTR, VERTEX_SHADER, FRAGMENT_SHADER } from "./constants";
-import { scaleIndex2ang, getRandom, randOpacityRgb } from "./utils";
+import { scaleIndex2ang, getRandom, randOpacityRgb, rgba } from "./utils";
 
 export interface IOpt {
   multiplier: number;
@@ -9,7 +9,7 @@ export interface IOpt {
 }
 
 export const DEFAULT_OPT: IOpt = {
-  multiplier: 150000,
+  multiplier: 10000,
   color: [209, 213, 219, 1],
   spiralConstA: 0.04,
   spiralConstB: 0.16,
@@ -29,13 +29,13 @@ export const createOptions = (opt: IOpt = DEFAULT_OPT) => {
         const xPos = A * Math.pow(Math.E, B * ang) * Math.cos(ang);
         const yPos = A * Math.pow(Math.E, B * ang) * Math.sin(ang);
 
-        return [getRandom(xPos), getRandom(yPos), 1];
+        return [xPos, yPos, 1];
       },
       size: 3,
     },
     {
       name: ATTR.COLOR,
-      data: () => randOpacityRgb(color),
+      data: () => rgba(color),
       size: 3,
     },
   ];
