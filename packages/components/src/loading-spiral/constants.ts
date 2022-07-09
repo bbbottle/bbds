@@ -1,11 +1,13 @@
 export enum ATTR {
   POSITION_START = "aPositionStart",
   COLOR = "aColor",
+  OFFSET_Y = "aOffsetY",
 }
 
 export const VERTEX_SHADER = `
   attribute vec3 ${ATTR.POSITION_START};
   attribute vec3 ${ATTR.COLOR};
+  attribute float ${ATTR.OFFSET_Y};
   uniform mat4 uProjectionMatrix;
   uniform mat4 uModelMatrix;
   uniform mat4 uViewMatrix;
@@ -19,6 +21,14 @@ export const VERTEX_SHADER = `
       0.0, 0.0, 0.0, 1.0
     );
   }
+  mat4 translateY(float _offset){
+    return mat4(
+      1.0, 0.0, 0.0, 0.0,
+      0.0, 1.0, 0.0, -1.0 * _offset,
+      0.0, 0.0, 1.0, 0.0,
+      0.0, 0.0, 0.0, 1.0
+    );
+  }
   mat4 translate(float _angle){
     return mat4(
       1.0, 0.0, 0.0, sin(_angle) * 0.02,
@@ -28,7 +38,7 @@ export const VERTEX_SHADER = `
     );
   }
   void main(){
-    gl_Position = rotate(uProgress) * uProjectionMatrix * uModelMatrix * uViewMatrix * vec4(${ATTR.POSITION_START}, 1.0) * translate(uProgress);
+    gl_Position = rotate(uProgress) * uProjectionMatrix * uModelMatrix * uViewMatrix * vec4(${ATTR.POSITION_START}, 1.0) * translate(uProgress) * translateY(${ATTR.OFFSET_Y});
     gl_PointSize = 1.0;
     vColor = ${ATTR.COLOR};
   }

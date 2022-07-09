@@ -1,11 +1,12 @@
 import { ATTR, VERTEX_SHADER, FRAGMENT_SHADER } from "./constants";
-import { scaleIndex2ang, getRandom, randOpacityRgb, rgba } from "./utils";
+import { scaleIndex2ang, rgba } from "./utils";
 
 export interface IOpt {
   multiplier: number;
   color: number[];
   spiralConstA: number;
   spiralConstB: number;
+  offset?: number;
 }
 
 export const DEFAULT_OPT: IOpt = {
@@ -13,10 +14,17 @@ export const DEFAULT_OPT: IOpt = {
   color: [209, 213, 219, 1],
   spiralConstA: 0.04,
   spiralConstB: 0.16,
+  offset: -0.3,
 };
 
 export const createOptions = (opt: IOpt = DEFAULT_OPT) => {
-  const { multiplier, spiralConstA, spiralConstB, color } = opt;
+  const {
+    multiplier,
+    spiralConstA,
+    spiralConstB,
+    color,
+    offset = -1 * 0.3,
+  } = opt;
 
   const attributes = [
     {
@@ -37,6 +45,11 @@ export const createOptions = (opt: IOpt = DEFAULT_OPT) => {
       name: ATTR.COLOR,
       data: () => rgba(color),
       size: 3,
+    },
+    {
+      name: ATTR.OFFSET_Y,
+      data: () => [offset],
+      size: 1,
     },
   ];
 

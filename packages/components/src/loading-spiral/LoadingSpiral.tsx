@@ -14,15 +14,8 @@ export interface LoadingSpiralProps extends IOpt, ISettings {
 }
 
 export const LoadingSpiral = (props?: LoadingSpiralProps) => {
-  const {
-    className,
-    canvas,
-    step,
-    maxWidth = 1000,
-    offset = -100,
-    ...rest
-  } = props || {};
-  const { canvasRef, containerRef } = useResizedCanvasRef(maxWidth, offset);
+  const { className, canvas, step, maxWidth = 1000, ...rest } = props || {};
+  const { canvasRef, containerRef } = useResizedCanvasRef(maxWidth);
 
   useEffect(() => {
     if (!canvasRef.current) {
