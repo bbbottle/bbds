@@ -35,7 +35,7 @@ export const LoadingSpiral = (props?: LoadingSpiralProps) => {
   return (
     <div
       className={classNames(
-        "fixed h-full w-full overflow-hidden flex justify-center items-center",
+        "h-full w-full overflow-hidden flex justify-center items-center",
         className
       )}
       ref={containerRef}
