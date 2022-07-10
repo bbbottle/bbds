@@ -1,10 +1,10 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, ReactNode } from "react";
 import { NoiseCover } from "../noise-cover/NoiseCover";
 
 type PageProps = {
   nav: ReactElement;
   main: ReactElement;
-  footer: ReactElement;
+  footer: ReactNode;
 };
 
 export const Page = (props: PageProps) => {
