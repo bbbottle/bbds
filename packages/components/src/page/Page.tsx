@@ -40,7 +40,7 @@ export const Error = (props: { error: Error }) => {
       color="#ef4444"
       className="flex justify-center items-center text-white"
     >
-      <code>
+      <code className="p-32">
         {error.name}: {error.message}
       </code>
     </NoiseCover>
