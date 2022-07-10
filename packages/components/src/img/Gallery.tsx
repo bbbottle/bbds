@@ -17,6 +17,7 @@ export interface GalleryProps
     RandomRowsLayoutProps,
     "classNames" | "cellsCount" | "cellRenderer"
   > {
+  className?: string;
   images: ImgProps[];
   children?: ReactNode;
   imageRenderer?: ImageRenderer;
@@ -40,6 +41,7 @@ export const Gallery = (props: GalleryProps) => {
     images,
     children,
     imageRenderer = defaultImageRenderer,
+    className = "",
     ...rest
   } = props;
 
@@ -58,7 +60,7 @@ export const Gallery = (props: GalleryProps) => {
   };
 
   return (
-    <div className="w-full flex justify-center">
+    <div className={classnames("w-full flex justify-center", className)}>
       <RandomRowsLayout
         classNames="mx-32 mt-128 max-w-screen-xl"
         cellsCount={images.length}

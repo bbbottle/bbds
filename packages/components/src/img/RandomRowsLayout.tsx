@@ -51,50 +51,55 @@ export interface RandomRowsLayoutProps {
   ) => React.ReactNode;
 }
 
-export const RandomRowsLayout = (props: RandomRowsLayoutProps) => {
-  const {
-    cellsCount,
-    cellRenderer,
-    classNames = "",
-    cellWrapperClsGenerator = defaultCellClsGenerator,
-  } = props;
-  const colNums = generateRandomColNum(cellsCount);
+export const RandomRowsLayout = React.memo(
+  (props: RandomRowsLayoutProps) => {
+    const {
+      cellsCount,
+      cellRenderer,
+      classNames = "",
+      cellWrapperClsGenerator = defaultCellClsGenerator,
+    } = props;
+    const colNums = generateRandomColNum(cellsCount);
 
-  const indexRef = React.useRef(0);
-  React.useEffect(() => {
-    indexRef.current = 0;
-  });
+    const indexRef = React.useRef(0);
+    React.useEffect(() => {
+      indexRef.current = 0;
+    }, []);
 
-  return (
-    <div className={classNames}>
-      {colNums.map((colNum, row) => {
-        const randBool = generateRandomBoolean(
-          colNum < 2 ? 0.6 : 0.5 /* 增加单列大图概率 */
-        );
-        const randBoolArr = [randBool, !randBool];
-        return (
-          <div className="flex items-center flex-wrap" key={row}>
-            {new Array(colNum).fill(null).map((_, col) => {
-              indexRef.current += 1;
-              const generatedCls = cellWrapperClsGenerator(
-                colNum,
-                generateRandomBoolean()
-              );
+    return (
+      <div className={classNames}>
+        {colNums.map((colNum, row) => {
+          const randBool = generateRandomBoolean(
+            colNum < 2 ? 0.6 : 0.5 /* 增加单列大图概率 */
+          );
+          const randBoolArr = [randBool, !randBool];
+          return (
+            <div className="flex items-center flex-wrap" key={row}>
+              {new Array(colNum).fill(null).map((_, col) => {
+                indexRef.current += 1;
+                const generatedCls = cellWrapperClsGenerator(
+                  colNum,
+                  generateRandomBoolean()
+                );
 
-              const cls = classnames(
-                "flex items-center justify-center flex-shrink-0 flex-grow-0",
-                "basis-full",
-                generatedCls
-              );
-              return (
-                <div className={cls} key={col}>
-                  {cellRenderer(indexRef.current - 1, randBoolArr[col], col)}
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+                const cls = classnames(
+                  "flex items-center justify-center flex-shrink-0 flex-grow-0",
+                  "basis-full",
+                  generatedCls
+                );
+                return (
+                  <div className={cls} key={col}>
+                    {cellRenderer(indexRef.current - 1, randBoolArr[col], col)}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+    );
+  },
+  (prevProps, nextProps) => {
+    return prevProps.cellsCount === nextProps.cellsCount;
+  }
+);
