@@ -19,4 +19,5 @@ export interface Photo {
 export interface ImgProps extends Photo {
   className?: string;
   size?: "large" | "normal";
+  removeBlurBgAfterLoad?: boolean;
 }

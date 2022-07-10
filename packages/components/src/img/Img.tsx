@@ -16,7 +16,9 @@ export const Img = (props: ImgProps) => {
     thumbnailSrc,
     processType,
     size,
+    removeBlurBgAfterLoad,
   } = props;
+
   const { width, height } = calcDefaultImgSize(
     props,
     renderedWidth,
@@ -28,22 +30,22 @@ export const Img = (props: ImgProps) => {
   const baseWrapperStyle = {
     width: "initial",
     height: "initial",
-    backgroundColor: avgColor || "unset",
+    backgroundSize: "cover",
+    backgroundPosition: "0% 0%",
+    backgroundColor: avgColor || "#f1f1f1",
+    backgroundImage: `url(${
+      thumbnailSrc
+        ? thumbnailSrc
+        : addOssWebpProcessStyle(src, ossProcessType.THUMBNAIL)
+    })`,
   };
 
-  const dynamicWrapperStyle = loaded
-    ? {
-        backgroundImage: "none",
-      }
-    : {
-        backgroundSize: "cover",
-        backgroundPosition: "0% 0%",
-        backgroundImage: `url(${
-          thumbnailSrc
-            ? thumbnailSrc
-            : addOssWebpProcessStyle(src, ossProcessType.THUMBNAIL)
-        })`,
-      };
+  const dynamicWrapperStyle =
+    loaded && removeBlurBgAfterLoad
+      ? {
+          backgroundImage: "none",
+        }
+      : {};
 
   const handleImgLoad = (img: HTMLImageElement) => {
     const updateFunc = async () => {
@@ -51,16 +53,14 @@ export const Img = (props: ImgProps) => {
       try {
         await p();
       } catch (e) {}
-      await delay(500);
       setDecoded(true);
-      await delay(500);
       setLoaded(true);
     };
 
-    // if (img.complete) {
-    //   updateFunc().then();
-    //   return;
-    // }
+    if (img.complete) {
+      updateFunc().then();
+      return;
+    }
 
     img.onload = updateFunc;
   };
