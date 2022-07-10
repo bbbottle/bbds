@@ -106,8 +106,8 @@ export const Img = (props: ImgProps) => {
           "h-full",
           "w-full",
           "transition-opacity",
-          "opacity-100",
           {
+            "opacity-100": !decoded,
             "opacity-0": decoded,
           }
         )}
