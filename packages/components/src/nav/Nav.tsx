@@ -6,10 +6,19 @@ import { BlinkDot } from "../blink-dot/BlinkDot";
 export type NavProps = {
   paths: PathObj[];
   loading?: boolean;
+  mini?: boolean;
   className?: string;
 };
 
 export const Nav = (props: NavProps) => {
+  if (props.mini) {
+    return (
+      <div className={`p-8 w-full flex items-center ${props.className}`}>
+        <Breadcrumb paths={props.paths} />
+      </div>
+    );
+  }
+
   return (
     <div className={`p-8 w-full flex items-center ${props.className}`}>
       <Logo className="mr-8" />
