@@ -105,7 +105,7 @@ export const Img = (props: ImgProps) => {
           "absolute",
           "h-full",
           "w-full",
-          "duration-300",
+          "duration-500",
           "transition-opacity",
           {
             "opacity-100": !decoded,
