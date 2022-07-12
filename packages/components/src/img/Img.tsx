@@ -32,7 +32,7 @@ export const Img = (props: ImgProps) => {
     height: "initial",
     backgroundSize: "cover",
     backgroundPosition: "0% 0%",
-    // backgroundColor: avgColor || "#f1f1f1",
+    boxShadow: "inset 1px 1px #f1f1f1, inset -1px -1px #f1f1f1",
     backgroundImage: `url(${
       thumbnailSrc
         ? thumbnailSrc
