@@ -32,7 +32,7 @@ export const Img = (props: ImgProps) => {
     height: "initial",
     backgroundSize: "cover",
     backgroundPosition: "0% 0%",
-    backgroundColor: avgColor || "#f1f1f1",
+    // backgroundColor: avgColor || "#f1f1f1",
     backgroundImage: `url(${
       thumbnailSrc
         ? thumbnailSrc
@@ -41,11 +41,7 @@ export const Img = (props: ImgProps) => {
   };
 
   const dynamicWrapperStyle =
-    loaded && removeBlurBgAfterLoad
-      ? {
-          backgroundImage: "none",
-        }
-      : {};
+    loaded && removeBlurBgAfterLoad ? { backgroundImage: "none" } : {};
 
   const handleImgLoad = (img: HTMLImageElement) => {
     const updateFunc = async () => {
@@ -72,6 +68,7 @@ export const Img = (props: ImgProps) => {
         "inline-block",
         "relative",
         "overflow-hidden",
+        "duration-500",
         "leading-none",
         "align-bottom",
         "border-0"
@@ -94,9 +91,14 @@ export const Img = (props: ImgProps) => {
         style={{
           contentVisibility: "auto",
         }}
-        className={classnames("transition-opacity", "opacity-100", {
-          "opacity-0": !decoded,
-        })}
+        className={classnames(
+          "transition-opacity",
+          "opacity-100",
+          "duration-500",
+          {
+            "opacity-0": !decoded,
+          }
+        )}
       />
       <img
         src={emptyDataURL}
