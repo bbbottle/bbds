@@ -29,15 +29,29 @@ export const createOptions = (opt: IOpt = DEFAULT_OPT) => {
   const attributes = [
     {
       name: ATTR.POSITION_START,
-      data: (index: number) => {
-        const ang = scaleIndex2ang(multiplier)(index);
-        const A = spiralConstA;
-        const B = spiralConstB;
+      data: (index: number, total: number) => {
+        const percent = index / total;
+        const length = 0.28;
+        const radius = 0.056;
+        const pi2 = Math.PI * 2;
 
-        const xPos = A * Math.pow(Math.E, B * ang) * Math.cos(ang);
-        const yPos = A * Math.pow(Math.E, B * ang) * Math.sin(ang);
+        let x = length * Math.sin(pi2 * percent),
+          y = radius * Math.cos(pi2 * 3 * percent),
+          z,
+          t;
 
-        return [xPos, yPos, 1];
+        t = (percent % 0.25) / 0.25;
+        t = (percent % 0.25) - (2 * (1 - t) * t * -0.0185 + t * t * 0.25);
+        if (
+          Math.floor(percent / 0.25) == 0 ||
+          Math.floor(percent / 0.25) == 2
+        ) {
+          console.log("neg t");
+          t *= -1;
+        }
+        z = radius * Math.sin(pi2 * 2 * (percent - t));
+
+        return [x, y, z];
       },
       size: 3,
     },
