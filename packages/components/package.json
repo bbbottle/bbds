@@ -1,6 +1,6 @@
 {
   "name": "@bbki.ng/components",
-  "version": "1.5.46",
+  "version": "1.5.47",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
