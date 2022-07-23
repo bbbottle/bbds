@@ -4,35 +4,27 @@ import { scaleIndex2ang, rgba } from "./utils";
 export interface IOpt {
   multiplier: number;
   color: number[];
-  spiralConstA: number;
-  spiralConstB: number;
   offset?: number;
+  length: number;
+  radius: number;
 }
 
 export const DEFAULT_OPT: IOpt = {
-  multiplier: 10000,
+  multiplier: 50000,
   color: [209, 213, 219, 1],
-  spiralConstA: 0.04,
-  spiralConstB: 0.16,
   offset: -0.3,
+  length: 0.15,
+  radius: 0.028,
 };
 
 export const createOptions = (opt: IOpt = DEFAULT_OPT) => {
-  const {
-    multiplier,
-    spiralConstA,
-    spiralConstB,
-    color,
-    offset = -1 * 0.3,
-  } = opt;
+  const { multiplier, color, length, radius, offset = -1 * 0.3 } = opt;
 
   const attributes = [
     {
       name: ATTR.POSITION_START,
       data: (index: number, total: number) => {
         const percent = index / total;
-        const length = 0.28;
-        const radius = 0.056;
         const pi2 = Math.PI * 2;
 
         let x = length * Math.sin(pi2 * percent),
@@ -46,7 +38,6 @@ export const createOptions = (opt: IOpt = DEFAULT_OPT) => {
           Math.floor(percent / 0.25) == 0 ||
           Math.floor(percent / 0.25) == 2
         ) {
-          console.log("neg t");
           t *= -1;
         }
         z = radius * Math.sin(pi2 * 2 * (percent - t));

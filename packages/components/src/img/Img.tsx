@@ -7,6 +7,7 @@ import { addOssWebpProcessStyle, calcDefaultImgSize, delay } from "./utils";
 const emptyDataURL =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
+export * from "./types";
 export const Img = (props: ImgProps) => {
   const {
     src,

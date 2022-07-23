@@ -24,6 +24,10 @@ export const LoadingSpiral = (props?: LoadingSpiralProps) => {
 
     const phenomenon = new Phenomenon({
       settings: createSettings({ canvas: canvasRef.current, step }),
+      context: {
+        alpha: true,
+        antialias: true,
+      },
     });
 
     phenomenon.add(
