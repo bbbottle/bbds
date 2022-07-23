@@ -8,17 +8,18 @@ export const createSettings = (settings: ISettings) => {
   const uniforms = {
     uProgress: {
       type: "float",
-      value: 0.0
-    }
+      value: 0.0,
+    },
   };
 
   return {
     uniforms,
+    devicePixelRatio: window.devicePixelRatio,
     shouldRender: true,
     canvas,
     onRender: (r: any) => {
       const { uProgress } = r.uniforms;
       uProgress.value += step;
-    }
+    },
   };
 };
