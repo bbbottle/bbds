@@ -6,7 +6,6 @@ export interface IOpt {
   color: number[];
   offset?: number;
   length: number;
-  radius: number;
 }
 
 export const DEFAULT_OPT: IOpt = {
@@ -14,12 +13,12 @@ export const DEFAULT_OPT: IOpt = {
   color: [209, 213, 219, 1],
   offset: -0.3,
   length: 0.15,
-  radius: 0.028,
 };
 
 export const createOptions = (opt: IOpt = DEFAULT_OPT) => {
-  const { multiplier, color, length, radius, offset = -1 * 0.3 } = opt;
+  const { multiplier, color, length, offset = -1 * 0.3 } = opt;
 
+  const radius = (0.028 / 0.15) * length;
   const attributes = [
     {
       name: ATTR.POSITION_START,
