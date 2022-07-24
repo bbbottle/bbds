@@ -9,7 +9,7 @@ export const useResizedCanvasRef = (maxSize: number) => {
     const container = containerRef.current;
     if (!canvas || !container) return;
     const { width, height } = container.getBoundingClientRect();
-    const canvasSize = Math.max(width, height);
+    const canvasSize = Math.min(width, height);
     const size = Math.min(canvasSize, maxSize);
 
     canvas.setAttribute("width", `${size}`);

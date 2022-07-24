@@ -4,7 +4,8 @@ export interface ISettings {
 }
 
 export const createSettings = (settings: ISettings) => {
-  const { canvas, step = 0.1 } = settings;
+  const { canvas, step = 0.09 } = settings;
+
   const uniforms = {
     uProgress: {
       type: "float",

@@ -6,9 +6,12 @@ export default {
   component: LoadingSpiral,
   argTypes: {
     color: {
-      defaultValue: [209, 213, 219, 1]
-    }
-  }
+      defaultValue: [209, 213, 219, 1],
+    },
+    length: {
+      defaultValue: 0.15,
+    },
+  },
 };
 
 export const Default = (props: LoadingSpiralProps) => (

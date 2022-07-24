@@ -2,7 +2,7 @@
 import Phenomenon from "phenomenon";
 // @ts-ignore
 import classNames from "classnames";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { createSettings, ISettings } from "./createSettings";
 import { createOptions, DEFAULT_OPT, IOpt } from "./createOptions";
 import { useResizedCanvasRef } from "./useCanvasRef";
@@ -37,14 +37,12 @@ export const LoadingSpiral = (props?: LoadingSpiralProps) => {
   }, []);
 
   return (
-    <div
+    <canvas
+      ref={canvasRef}
       className={classNames(
         "h-full w-full overflow-hidden flex justify-center items-center",
         className
       )}
-      ref={containerRef}
-    >
-      <canvas ref={canvasRef} className="relative" />
-    </div>
+    />
   );
 };
