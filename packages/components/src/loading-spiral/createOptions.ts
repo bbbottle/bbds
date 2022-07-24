@@ -12,7 +12,7 @@ export const DEFAULT_OPT: IOpt = {
   multiplier: 5000,
   color: [209, 213, 219, 1],
   offset: -0.3,
-  length: 0.15,
+  length: 0.3,
 };
 
 export const createOptions = (opt: IOpt = DEFAULT_OPT) => {

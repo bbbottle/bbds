@@ -9,7 +9,7 @@ export default {
       defaultValue: [209, 213, 219, 1],
     },
     length: {
-      defaultValue: 0.15,
+      defaultValue: 0.3,
     },
   },
 };

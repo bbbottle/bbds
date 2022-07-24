@@ -63,7 +63,7 @@ export const VERTEX_SHADER = `
      * vec4(curve(${ATTR.PERCENT}, ${ATTR.LENGTH}), 1.0)
      * translateY(${ATTR.OFFSET_Y});
 
-    gl_PointSize = 1.0;
+    gl_PointSize = 2.0;
     vColor = ${ATTR.COLOR};
   }
 `;
